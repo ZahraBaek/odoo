@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+  <record id="res_partner_view_form_inherit" model="ir.ui.view">
+        <field name="name">Rappel</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+             <xpath expr="//notebook/page[@name='internal_notes']" position="after">
+                 <page name="crm_qualification" string="CRM qualification">
+                    <button name="calendar" icon="fa-calendar" modifiers="{}" options="{}">
+                        <field name="x_partner_id" modifiers="{'required':true}" id="x_partner_id">
+                            <tree string="Service Details" editable="bottom" >
+                                <field name ="x_rappel" />
+                                <field name = "name"/>
+                            </tree>
+                        </field>
+                    </button>
+			    </page>
+            </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>

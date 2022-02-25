@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+  <record id="crm_lead_view_form_inherit" model="ir.ui.view">
+        <field name="name">Rappel</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form" />
+        <field name="arch" type="xml">
+             <xpath expr="//notebook/page[@name='internal_notes']" position="after">
+                 <page name="rappel" string="Rappel">
+                    <button name="calendar" icon="fa-calendar" modifiers="{}" options="{}">
+                        <field name="x_rappel" modifiers="{'required':true}" id="x_rappel"/>
+                    </button>
+			    </page>
+            </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>
