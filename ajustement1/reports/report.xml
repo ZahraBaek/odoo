@@ -1,0 +1,3 @@
+<odoo>
+    <report id="report_lead" string="Lead" model="crm.lead" report_type="qweb-pdf" name="ajustement1.report_lead" file="ajustement1.report_lead"/>
+</odoo>

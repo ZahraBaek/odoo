@@ -1,0 +1,42 @@
+<odoo>
+
+
+    <template id="report_lead" >
+
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <t t-if="doc.x_rappel &lt; datetime.datetime.now()">
+                        <h1>
+                            <t t-esc="doc.name"/>
+                        </h1>
+                        <br/>
+                        <h3>
+                            Customer :<t t-esc="doc.partner_name"/>
+                        </h3>
+                        <br/>
+                        <h3>
+                            Contact Name :<t t-esc="doc.contact_name"/>
+                        </h3>
+                        <br/>
+                        <h3>
+                            Date :<t t-esc="doc.x_rappel"/>
+                        </h3>
+                        <br/>
+                        <h3>
+                            Phone :<t t-esc="doc.phone"/>
+                        </h3>
+                        <br/>
+                        <h3>
+                            Salesperson :<t t-esc="doc.user_id.name"/>
+                        </h3>
+                         <br/>
+                        <h3>
+                            Sales Team :<t t-esc="doc.team_id.name"/>
+                        </h3>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

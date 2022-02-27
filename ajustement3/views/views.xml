@@ -9,7 +9,8 @@
                  <page name="crm_qualification" string="CRM qualification">
                         <field name="x_partner_id">
                             <tree string="Leads">
-                                <field name ="name"/>
+                                <field name="name"/>
+                                <field name="x_rappel"/>
                             </tree>
                         </field>
 			    </page>
