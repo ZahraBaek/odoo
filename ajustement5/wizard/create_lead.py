@@ -7,4 +7,4 @@ class CreateLeadWizard(models.TransientModel):
     _name = "create.lead.wizard"
     _description = "Create Lead Wizard"
 
-    #name = fields.Char(string='name',required=True,groups='')
+    name = fields.Char(string='name', required=True)

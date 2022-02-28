@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "ajustement1",
+    'name': "ajustement5",
 
     'summary': """
-        Ajustement 1 """,
+        Short (1 phrase/line) summary of the module's purpose, used as
+        subtitle on modules listing or apps.openerp.com""",
 
     'description': """
         Long description of module's purpose
@@ -23,12 +24,10 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/show_leads.xml',
-        'reports/report.xml',
-        'reports/lead_card.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,0 +1,3 @@
+<odoo>
+  <menuitem name="Create lead" id="create_lead_menu" parent="crm.crm_menu_leads" action="" groups="base.group_user"/>
+</odoo>
