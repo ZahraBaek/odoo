@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "ajustement4_5",
+    'name': "ajustement3",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -20,15 +20,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','crm'],
+    'depends': ['base','contacts'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-'wizard/create_lead.xml',
         'views/views.xml',
         'views/templates.xml',
-
+        'wizard/darbtech_res_partner_crm_lead_wizard_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

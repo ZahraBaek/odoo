@@ -4,15 +4,16 @@ from odoo import api, fields, models, _
 
 
 class CreateLeadWizard(models.TransientModel):
-    _name = "ajustement.res.partner.crm.lead.wizard"
-    _description = "CRM Lead Wizard"
+    _name = 'darbtech.res.partner.crm.lead.wizard'
+    _description = 'Darbtech Res Partner CRM Lead Wizard'
 
     state = fields.Selection([('init', 'Initial'), ('final', 'Final')],
                              default='init')
 
     name = fields.Char('Opportunity', required=True, index=True)
     partner_id = fields.Many2one('res.partner', string='Customer', track_visibility='onchange', track_sequence=1,
-                                 index=True)
+                                 index=True,
+                                 help="Linked partner (optional). Usually created when converting the lead. You can find a partner by its Name, TIN, Email or Internal Reference.")
 
     team_id = fields.Many2one('crm.team', string='Sales Team', oldname='section_id',
                               default=lambda self: self.env['crm.team'].sudo()._get_default_team_id(
@@ -29,11 +30,37 @@ class CreateLeadWizard(models.TransientModel):
          ('3', 'Very High')], string='Priority', index=True, default='0')
     tag_ids = fields.Many2many('crm.lead.tag', 'crm_lead_tag_rel', 'lead_id', 'tag_id', string='Tags',
                                help="Classify and analyze your lead/opportunity categories like: Training, Service")
-    x_rappel = fields.Datetime(string='Rappel')
+    reminder_date = fields.Date()
 
+
+    def previous(self):
+        """ Previous and goes to user and periode choices """
+        self.ensure_one()
+        self.state = 'init'
+        return {
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': self._name,
+            'res_id': self[0].id,
+            'target': 'new'
+        }
+
+
+    def next(self):
+        """ Next and goes to summary """
+        self.ensure_one()
+        self.state = 'final'
+        return {
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': self._name,
+            'res_id': self[0].id,
+            'target': 'new'
+        }
 
 
     def create_lead(self):
+        """ Next and goes to summary """
         self.ensure_one()
         values = self.get_values()
         values.update({'type': 'lead'})
@@ -63,31 +90,6 @@ class CreateLeadWizard(models.TransientModel):
             'mobile': self.partner_id.mobile,
             'priority': self.priority,
             'tag_ids': self.tag_ids.ids,
-            'x_rappel': self.x_rappel
+            'reminder_date': self.reminder_date
 
         }
-
-    def previous(self):
-        self.ensure_one()
-        self.state = 'init'
-        return {
-            'type': 'ir.actions.act_window',
-            'view_mode': 'form',
-            'res_model': self._name,
-            'res_id': self[0].id,
-            'target': 'new'
-        }
-
-
-    def next(self):
-        self.ensure_one()
-        self.state = 'final'
-        return {
-            'type': 'ir.actions.act_window',
-            'view_mode': 'form',
-            'res_model': self._name,
-            'res_id': self[0].id,
-            'target': 'new'
-        }
-
-

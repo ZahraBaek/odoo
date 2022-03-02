@@ -5,14 +5,8 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
-          <sheet position="before">
-            <header>
-              <button name="%(ajustement4_5.crm_lead_wizard_action)d"
-                      string="Create lead"
-                      type="action"/>
-            </header>
-          </sheet>
-          <xpath expr="//notebook/page[@name='internal_notes']" position="after">
+
+             <xpath expr="//notebook/page[@name='internal_notes']" position="after">
                  <page name="crm_qualification" string="CRM qualification">
                         <field name="x_partner_id">
                             <tree string="Leads">
@@ -21,7 +15,7 @@
                             </tree>
                         </field>
 			    </page>
-          </xpath>
+            </xpath>
         </field>
     </record>
   </data>
