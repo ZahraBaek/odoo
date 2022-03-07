@@ -29,6 +29,7 @@
         'views/templates.xml',
         'reports/report.xml',
         'reports/lead_card.xml',
+        'views/website_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

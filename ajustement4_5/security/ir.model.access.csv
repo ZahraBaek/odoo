@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_ajustement4_5_ajustement4_5,ajustement4_5.ajustement4_5,model_ajustement4_5_ajustement4_5,base.group_user,1,1,1,1
+access_crm_lead_wizard,ajustement4_5.res.partner.crm.lead.wizard,model_ajustement4_5_res.partner_crm_lead_wizard,,1,1,1,1

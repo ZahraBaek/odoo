@@ -24,8 +24,8 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-'wizard/create_lead.xml',
+        'security/ir.model.access.csv',
+        'wizard/create_lead.xml',
         'views/views.xml',
         'views/templates.xml',
 

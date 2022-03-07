@@ -2,7 +2,7 @@
   <data>
     <record id="crm_lead_wizard_form" model="ir.ui.view">
       <field name="name">CRM Lead Wizard form</field>
-      <field name="model">ajustement.res.partner.crm.lead.wizard</field>
+      <field name="model">ajustement4_5.res.partner.crm.lead.wizard</field>
       <field name="arch" type="xml">
         <form>
           <sheet>
@@ -43,7 +43,7 @@
 
     <act_window id="crm_lead_wizard_action"
                 name="CRM Lead Wizard"
-                res_model="ajustement.res.partner.crm.lead.wizard"
+                res_model="ajustement4_5.res.partner.crm.lead.wizard"
                 view_mode="form"
                 target="new"/>
 
