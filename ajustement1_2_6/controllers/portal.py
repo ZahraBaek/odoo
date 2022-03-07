@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-
-
+import datetime
 from collections import OrderedDict
 from operator import itemgetter
 
@@ -17,7 +16,7 @@ class CreateCustomerPortal(CustomerPortal):
 
     def _prepare_portal_layout_values(self):
         values = super(CreateCustomerPortal, self)._prepare_portal_layout_values()
-        values['lead_count'] = request.env['crm.lead'].search_count([('type', '=', 'lead')])
+        values['lead_count'] = request.env['crm.lead'].search_count([('type', '=', 'lead'),('x_rappel','<',datetime.datetime.now())])
         return values
 
     # ------------------------------------------------------------
@@ -34,7 +33,7 @@ class CreateCustomerPortal(CustomerPortal):
     def portal_my_leads(self, page=1, sortby=None, **kw):
         values = self._prepare_portal_layout_values()
         Lead = request.env['crm.lead']
-        domain = [('type', '=', 'lead')]
+        domain = [('type', '=', 'lead'),('x_rappel','<',datetime.datetime.now())]
 
         searchbar_sortings = {
             'date': {'label': _('Newest'), 'order': 'create_date desc'},
