@@ -1,9 +1,3 @@
 <odoo>
-<!--
-    <template id="ajustement1_2_6_assets_backend" name="test assets" inherit_id="web.assets_backend">
-        <xpath expr="." position="inside">
-            <script type="text/javascript" src="/ajustement1_2_6/static/src/js/systray_lead_menu.js"></script>
-        </xpath>
-    </template>
-!-->
+
 </odoo>
