@@ -6,8 +6,8 @@ odoo.define('systray_button.address_systray', function (require) {
    var SystrayMenu = require('web.SystrayMenu');
    var rpc = require('web.rpc');
    var Address = Widget.extend({
-       template: 'systray_button.address_systray',
-       xmlDependencies: ['/systray_button/static/src/js/systray_lead_menu.js'],
+       xmlDependencies: ['/systray_button/static/src/xml/systray.xml'],
+       template: 'address_systray',
        events: {
            "click #add": "add_button"
        },
